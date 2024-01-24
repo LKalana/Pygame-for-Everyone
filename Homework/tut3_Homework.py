@@ -21,7 +21,6 @@ BLUE = (0, 0, 255)     # Blue color
 
 # Adding a text on the screen
 font = pygame.font.Font('freesansbold.ttf', 32)
-#text = font.render('GeeksForGeeks', True, BLUE, 0)
 #textRect = text.get_rect()
 
 # Set up the game clock and frames per second
