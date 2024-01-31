@@ -26,13 +26,12 @@ moving_left = False    # Movement Left Flag.
 moving_right = False	# Movement Right Flag.
 shoot = False 			# Shoot Flag.
 
-
 # Loading the Bullet image.
 bullet_img = pygame.image.load('img/icons/bullet.png').convert_alpha()
 
 
 #define colours
-BG = (144, 201, 120)
+BG = (0, 0, 0)
 RED = (255, 0, 0)
 
 
@@ -151,7 +150,7 @@ class Soldier(pygame.sprite.Sprite):
 		# Check if the player is initiating a jump and is not already in the air.
 		if self.jump == True and self.in_air == False:
 			# Set the vertical velocity (self.vel_y) to a negative value to move upward.
-			self.vel_y = -11
+			self.vel_y = -13
 			# Reset the jump flag to prevent continuous jumping.
 			self.jump = False
 			# Set the in_air flag to True to indicate that the player is now in the air.
@@ -248,6 +247,7 @@ class Bullet(pygame.sprite.Sprite):
 	def __init__(self, x, y, direction):
 		# Call the constructor of the parent class (pygame.sprite.Sprite).
 		pygame.sprite.Sprite.__init__(self)
+		self.Bvel_y = 0
 		# Set the speed of the Bullet.
 		self.speed = 10
 		# Set the image of the Bullet to a predefined Bullet image (bullet_img).
@@ -265,7 +265,6 @@ class Bullet(pygame.sprite.Sprite):
 		self.rect.x += (self.direction * self.speed)
 		# Check if the Bullet has gone off the screen.
 		if self.rect.right < 0 or self.rect.left > SCREEN_WIDTH:
-			# If the Bullet is off-screen, remove it from the Sprite group.
 			self.kill()
 		# Check for collision with the Player and apply damage if the Player is alive.
 		if pygame.sprite.spritecollide(player, bullet_group, False):
@@ -286,7 +285,7 @@ bullet_group = pygame.sprite.Group()
 
 # Create an instance of the Soldier class representing the Player and Enemy characters.
 player = Soldier('player', 200, 200, 3, 5, 20)
-enemy = Soldier('enemy', 400, 200, 3, 5, 20)
+enemy = Soldier('enemy', 700, 245, 3, 5, 20)
 
 
 # Setting the Game Loop varibale to true.
@@ -307,7 +306,6 @@ while run:
 	# Update and draw the Bullet group (contains all active Bullets).
 	bullet_group.update()
 	bullet_group.draw(screen)
-
 
 	# Update player actions if the Player is alive.
 	if player.alive:
