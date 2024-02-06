@@ -9,6 +9,8 @@ Welcome to the PyGame game development crash course. You can follow these lesson
 
 1. Introduction to PyGame and create the game window 🕹️.
 2. How to use Keyboard Inputs ⌨️.
-3. How to add sprite animations 🚀.
+3. How to add Sprite Animations 🚀.
+4. Shooting Bullets 🔫.
+5. Grenades and Projectiles 💣.
 
 For any issues or questions, feel free to send an email to lkalana@yahoo.com 📧.
